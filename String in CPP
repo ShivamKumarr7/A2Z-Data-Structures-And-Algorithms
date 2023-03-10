@@ -1,0 +1,24 @@
+// Strings in CPP
+
+// A string is a class in CPP that defines objects that can be represented as stream of characters.
+// In case of strings memory is dynamically allocated.
+// Strings are slower compared to character array.
+// String class allows a number of functionalities that allow manifold operations on strings.
+
+
+// getline(cin,s) se pehle things input stream me clear rahe...issliye good practice to use 
+// cin.ignore(256,'\n')
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    cout<<s<<"\n";
+    cin.ignore(256,'\n');  // we use this to ignore everything that might be present in input stream
+    string para;
+    getline(cin,para);
+    cout<<para<<"\n";
+    return 0;
+}
