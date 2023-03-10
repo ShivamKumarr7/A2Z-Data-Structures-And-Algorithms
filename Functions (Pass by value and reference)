@@ -1,0 +1,26 @@
+// Functions - Pass by value and Pass by reference
+
+#include<bits/stdc++.h>
+using namespace std;
+void lets_try_pass_by_value(int age)
+{
+    age += 1;
+}
+void lets_try_pass_by_reference(int &marks)
+{
+    marks += 1;
+}
+int main()
+{
+    int age;
+    cin>>age;
+    cout<<"Before passing age to function "<<age<<"\n";
+    lets_try_pass_by_value(age);
+    cout<<"After passing age to function "<<age<<"\n";
+    int marks;
+    cin>>marks;
+    cout<<"Before passing marks to function "<<marks<<"\n";
+    lets_try_pass_by_reference(marks);
+    cout<<"After passing marks to function "<<marks<<"\n";
+    return 0;
+}
