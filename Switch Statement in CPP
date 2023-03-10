@@ -1,0 +1,41 @@
+// 10th March 2023
+
+// Switch statement in cpp
+
+
+#include<iostream>
+using namespace std;
+int helper1(int value1)
+{
+    switch(value1)
+    {
+        case 1 : return 1;
+        break;
+        case 2 : return 2;
+        break;
+        case 3 : return 3;
+        break;
+        default : return 100;
+    }
+}
+char helper2(char value2)
+{
+    switch(value2)
+    {
+        case 'a' : return 'a';
+        break;
+        case 'b' : return 'b';
+        break;
+        default : return 'z';
+    }
+}
+int main()
+{
+    int value1;
+    cin>>value1;
+    char value2;
+    cin>>value2;
+    cout<<helper1(value1)<<"\n";
+    cout<<helper2(value2)<<"\n";
+    return 0;
+}
