@@ -1,0 +1,44 @@
+// Pattern Problem 9
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int length = ((2*n) - 1);
+    int breadth = n;
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=(breadth-1);j++)
+        {
+            cout<<" "<<" ";
+        }
+        for(int j=breadth;j<=length-breadth+1;j++)
+        {
+            cout<<"*"<<" ";
+        }
+        for(int j=length-breadth+2;j<=length;j++)
+        {
+            cout<<" "<<" ";
+        }
+        breadth = breadth - 1;
+        cout<<"\n";
+    }
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<i;j++)
+        {
+            cout<<" "<<" ";
+        }
+        for(int j=i;j<=length+1-i;j++)
+        {
+            cout<<"*"<<" ";
+        }
+        for(int j=length+2-i;j<=length;j++)
+        {
+            cout<<" "<<" ";
+        }
+        cout<<"\n";
+    }
+}
