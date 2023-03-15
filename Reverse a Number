@@ -1,0 +1,33 @@
+// Reverse a Number 
+
+#include<bits/stdc++.h>
+using namespace std;
+int reverse_number1(int n)
+{
+    string temp = to_string(n);
+    reverse(temp.begin(),temp.end());
+    int ans = stoi(temp);
+    return ans;
+}
+int reverse_number2(int n)
+{
+    // Time Complexity --> O(log n)
+    int reversed_number = 0;
+    while(n > 0)
+    {
+        reversed_number = reversed_number * 10 + (n % 10);
+        n = n / 10;
+    }
+    return reversed_number;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int ans1 = reverse_number1(n);
+    cout<<"The actual number was : "<<n<<"\n";
+    cout<<"The reversed number is : "<<ans1<<"\n"<<"\n";
+    int ans2 = reverse_number2(n);
+    cout<<"previously number was : "<<n<<" and now number is : "<<ans2<<"\n";
+    return 0;
+}
