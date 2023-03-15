@@ -1,0 +1,27 @@
+// Unordered_Set in C++ STL 
+
+// Unordered set is an associative container which is implemented using hash table.
+// All operations of unordered set takes O(1) time and can go upto O(n) in extreme cases depending 
+// upon the internally used hash function.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    unordered_set<int>us;
+    us.insert(65);
+    us.insert(10);
+    us.insert(1);
+    us.insert(4);
+    us.insert(2);
+    us.insert(19);
+    us.insert(25);
+    unordered_set<int>:: iterator it;
+    for(it = us.begin();it != us.end();it++)
+    {
+        cout<<*(it)<<" "; 
+    }
+    cout<<"\n";
+    return 0;
+}
