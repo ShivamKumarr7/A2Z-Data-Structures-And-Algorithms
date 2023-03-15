@@ -1,0 +1,26 @@
+// C++ STL 
+// STL --> Standard Template Library
+
+// STL in short provides us i) Containers ii) Algorithms iii) Iterators iv) Functions
+// These 4 help us in writing better and efficient code.
+// STL is a library that prvides us containers,algorithms,iterators and functions.
+
+
+// STL Containers contains - 
+
+// i) Pair 
+// ii) Tuple 
+// iii) Map 
+// iv) Unordered Map
+// v) Multi-Map
+// vi) Unordered Multi-Map
+// vii) Set 
+// viii) Unordered Set 
+// ix) Multi-set
+// x) Unordered Multi-set
+// xi) Vectors
+// xii) List 
+// xiii) Stack 
+// xiv) Queue 
+// xv) Priority-queue
+// xvi) Deque 
