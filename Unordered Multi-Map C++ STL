@@ -1,0 +1,25 @@
+// Unordered Multi-Map
+
+// Unordered multimap is very similar to unordered maps.
+// In this we can store duplicates which was a limitation in unordered maps.
+// This also uses a hash-table internally.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    unordered_multimap<int,string>ummap;
+    ummap.insert({1,"zzz"});
+    ummap.insert({5,"sat"});
+    ummap.insert({2,"nit"});
+    ummap.insert({1,"zzz"});
+    ummap.insert({1,"sks"});
+    unordered_multimap<int,string>:: iterator it = ummap.begin();
+    while(it != ummap.end())
+    {
+        cout<<it->first<<" "<<it->second<<"\n";
+        it++;
+    }
+    return 0;
+}
