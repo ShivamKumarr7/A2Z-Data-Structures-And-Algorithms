@@ -1,0 +1,42 @@
+// Unordered-Map
+
+// Unordered Map is an associated container,stores elements formed by the combination of a key and value.
+// The key is used to uniquely identify the element.
+// Both key and value can be predefined or user defined.
+// It contains successive pairs (key, value).
+// It allows fast retrieval of an individual element based on its unique key.
+
+// Internally, unordered map uses HASH-TABLE.
+// The key provided is hashed into indices of a hash-table.
+// The cost of search,insert and delete is O(1).
+
+// Syntax --> unordered_map<int,string>umap;
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    unordered_map<int,int>umap;
+    umap.insert({1,100});
+    umap.insert({2,99});
+    umap.insert({5,96});
+    umap.insert({3,98});
+    unordered_map<int,int>:: iterator it = umap.begin();
+    while(it != umap.end())
+    {
+        cout<<it->first<<" "<<it->second<<"\n";
+        it++;
+    }
+    cout<<"\n";
+    
+    int x = 2;
+    // suppose i need to find the value assigned to this key then 
+    if(umap.find(2) != umap.end())
+    {
+        cout<<"element found\n";
+        int sys = umap[2];
+        cout<<sys<<"\n";
+    }
+    return 0;
+}
