@@ -1,0 +1,27 @@
+// MultiSets in C++ STL 
+
+// Multisets are a type of associative containers similar to the set but with the exception that 
+// it can store multiple elements of the same value.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    multiset<int>s;
+    s.insert(45);
+    s.insert(23);
+    s.insert(19);
+    s.insert(25);
+    s.insert(7);
+    s.insert(9);
+    s.insert(1);
+    s.insert(23);
+    multiset<int>:: iterator it;
+    for(it = s.begin();it != s.end();it++)
+    {
+        cout<<*(it)<<" ";
+    }
+    cout<<"\n";
+    return 0;
+}
