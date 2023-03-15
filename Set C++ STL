@@ -1,0 +1,27 @@
+// Set C++ STL 
+
+// Set are a type of associative containers in which each element has to be unique.
+// The values are stored in specific sorted order.
+// It internally uses a Binary Search Tree (BST).
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    set<int>s;
+    s.insert(56);
+    s.insert(19);
+    s.insert(25);
+    s.insert(1);
+    s.insert(7);
+    s.insert(3);
+    cout<<"size of set : "<<s.size()<<"\n";
+    // lets iterate over the set elements
+    set<int>:: iterator it = s.begin();
+    for(it = s.begin();it != s.end();it++)
+    {
+        cout<<*(it)<<" ";
+    }
+    cout<<"\n";
+    return 0;
+}
