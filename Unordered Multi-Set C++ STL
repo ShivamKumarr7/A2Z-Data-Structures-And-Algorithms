@@ -1,0 +1,28 @@
+// Unordered Multi-set C++ STL 
+
+// They are unordered associative containers that work similar to the unordered_set but with the 
+// exception that these allows multiple values of the same type.
+// Hash Table is used internally.
+// Most of the operation take O(1) time and O(n) at worst case.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    unordered_multiset<int>ums;
+    ums.insert(5);
+    ums.insert(10);
+    ums.insert(2);
+    ums.insert(19);
+    ums.insert(25);
+    ums.insert(10);
+    ums.insert(1);
+    unordered_multiset<int>:: iterator it;
+    for(it = ums.begin();it != ums.end();it++)
+    {
+        cout<<*(it)<<" ";
+    }
+    cout<<"\n";
+    return 0;
+}
