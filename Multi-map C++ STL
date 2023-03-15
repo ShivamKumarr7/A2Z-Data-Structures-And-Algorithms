@@ -1,0 +1,34 @@
+// Multi-Map C++ STL 
+
+// Multimap is similar to Map with the addition that multiple elements can have the same key.
+// Also, it is not reqd that key-value and mapped value pair has to be unique.
+// It all keeps all the elements in the sorted order.
+// It is also implemented using red-black trees.
+
+// Some basic functions associated with Multi-Map 
+// i) begin() --> Returns an iterator to the first element of the multimap 
+// ii) end() --> Returns an iterator to the theoretical element after the last element in the multimap 
+// iii) size() --> Returns the no of elements in the multimap 
+// iv) empty() --> Checks whether the multimap is empty or not 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    multimap<int,string>mmap;
+    mmap.insert({1,"abc"});
+    mmap.insert({5,"ghi"});
+    mmap.insert({2,"ioi"});
+    mmap.insert({9,"pot"});
+    mmap.insert({6,"top"});
+    mmap.insert({2,"zzz"});
+    mmap.insert({2,"ioi"});
+    multimap<int,string>:: iterator it = mmap.begin();
+    while(it != mmap.end())
+    {
+        cout<<it->first<<" "<<it->second<<"\n";
+        it++;
+    }
+    return 0;
+}
