@@ -1,0 +1,52 @@
+// Map 
+// Maps are associative containers that store elements in a mapped fashion.
+// Each element has a key value and a mapped value.
+// No two mapped values can have the same key values.
+// {key -> value} or {key,value}
+// Maps are ordered in nature... i.e by default they are ordered maps.
+// INTERNALLY MAPS OR ORDERED MAPS USE RED-BLACK TREES.
+
+// Some basic functions with Maps 
+// i) begin() --> Returns an iterator to the first element of the Map 
+// ii) end() --> Returns an iterator to the theoretical element that follows the last element. 
+// iii) size() --> Returns the size of the map 
+// iv) empty() --> Checks whether the map is empty or not 
+// v) pair_insert(keyvalue,mapvalue) --> Inserts a new element to the map 
+// vi) erase(iterator_postition) --> Erases the element present at that location 
+// vii) clear() --> Clears the whole map i.e erases all the elements from the map. 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    map<int,int>m;
+    m[1] = 1;
+    m[2] = 2;
+    m[3] = 3;
+    map<int,int>:: iterator it = m.begin();
+    while(it != m.end())
+    {
+        cout<<it->first<<" "<<it->second<<"\n";
+        it++;
+    }
+    
+    cout<<"\n"<<"\n";
+    
+    map<char,int>n;
+    for(int i=0;i<5;i++)
+    {
+        char temp1;
+        int temp2;
+        cin>>temp1>>temp2;
+        n.insert({temp1,temp2});
+    }
+    for(auto bt = n.begin();bt != n.end();bt++)
+    {
+        cout<<bt->first<<" "<<bt->second<<"\n";
+    }
+    
+    cout<<"\n"<<"\n";
+    
+    return 0;
+}
