@@ -1,0 +1,36 @@
+// Q) Given a number N. Count the number of digits in N which evenly divides N.
+
+// Note - Evenly divides means whether N is divisible by a digit i.e. leaves a remainder 0 when divided.
+
+#include<bits/stdc++.h>
+using namespace std;
+int count_digits(int n)
+{
+    // Time complexity --> log2(n)
+    // Space complexity --> O(1)
+    if(n == 0) return 1;
+    if(n < 0)
+    {
+        n = n * (-1);
+    }
+    int ct = 0;
+    int actual_number = n;
+    while(n > 0)
+    {
+        int temp = n % 10;
+        if(temp != 0 && actual_number % temp == 0)
+        {
+            ct += 1;
+        }
+        n = n / 10;
+    }
+    return ct;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int ans = count_digits(n);
+    cout<<"No of digits in N that divides it evenly are : "<<ans<<"\n";
+    return 0;
+}
