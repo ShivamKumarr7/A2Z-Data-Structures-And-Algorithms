@@ -1,0 +1,42 @@
+// Pair 
+// Pair is used to combine together two values that may or may not be of diffrent data types.
+// Pair container is simple container that is present in the <utility> header.
+// Syntax --> pair<int,string>p;
+// The first element is referred using the variable name followed by a dot operator and first
+// Ex-> p.first
+// The second element can be referred as p.second
+
+
+#include<bits/stdc++.h>
+using namespace std;
+pair<char,int> help()
+{
+    pair<char,int> temp = {'a',97};
+    return temp;
+}
+int main()
+{
+    int a = 5;
+    int b = 10;
+    // if i want to store this together, i can use a pair 
+    pair<int,int>p;
+    p.first = a;
+    p.second = b;
+    // now to print this pair 
+    cout<<"first element of pair : "<<p.first<<"\n"<<"second element of pair : "<<p.second<<"\n";
+    
+    
+    pair<int,string>p1;
+    cin>>p1.first>>p1.second;
+    cout<<"p1 : {"<<p1.first<<","<<p1.second<<"}"<<"\n";
+    
+    
+    pair<char,int> p2 = help();
+    cout<<p2.first<<" "<<p2.second<<"\n";
+    
+    // can i make a pair of {pair,pair}
+    pair<pair<int,int>,pair<int,int>>complex;
+    cin>>complex.first.first>>complex.first.second>>complex.second.first>>complex.second.second;
+    cout<<"complex : {"<<"{"<<complex.first.first<<","<<complex.first.second<<"}"<<","<<"{"<<complex.second.first<<","<<complex.second.second<<"}"<<"}"<<"\n";
+    return 0;
+}
