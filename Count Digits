@@ -1,0 +1,38 @@
+// Count Digits 
+
+#include<bits/stdc++.h>
+using namespace std;
+int helper1(int n)
+{
+    if(n == 0)return 1;
+    if(n < 0)
+    {
+        n = (n * (-1));
+    }
+    return log10(n) + 1;
+}
+int helper2(int n)
+{
+    if(n == 0)return 1;
+    if(n < 0)
+    {
+        n = n * (-1);
+    }
+    int ct = 0;
+    while(n > 0)
+    {
+        ct += 1;
+        n = n / 10;
+    }
+    return ct;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int ans1 = helper1(n);
+    cout<<"No of digits are : "<<ans1<<"\n";
+    int ans2 = helper2(n);
+    cout<<"No of digits are : "<<ans2<<"\n";
+    return 0;
+}
