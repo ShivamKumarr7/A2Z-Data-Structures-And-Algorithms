@@ -1,0 +1,18 @@
+// Tuples 
+// A tuple is an object that can hold a number of elements.
+// The elements can be of diffrent data types.
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a = 1;
+    char b = 'z';
+    float c = 45.37;
+    double d = 64.785;
+    string e = "shivam";
+    tuple<int,char,float,double,string>t = make_tuple(a,b,c,d,e);
+    cout<<get<0>(t)<<" "<<get<1>(t)<<" "<<get<2>(t)<<" "<<get<3>(t)<<" "<<get<4>(t)<<"\n";
+    cout<<tuple_size<decltype(t)>::value<<"\n";
+    return 0;
+}
