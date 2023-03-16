@@ -1,0 +1,33 @@
+// Q) Check if a number is prime or not ? 
+
+#include<bits/stdc++.h>
+using namespace std;
+bool check_for_prime(int n)
+{
+    // Time Complexity --> O(sqrt(n))
+    // Space Complexity --> O(1)
+    if(n == 0 || n == 1) return false;
+    for(int i=2;i<=sqrt(n);i++)
+    {
+        if(n % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    bool ans = check_for_prime(n);
+    if(ans)
+    {
+        cout<<"Yes,a prime number\n";
+    }
+    else
+    {
+        cout<<"Not a prime number\n";
+    }
+    return 0;
+}
