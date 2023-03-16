@@ -1,0 +1,33 @@
+// Given an integer, check whether it is a palindrome or not.
+
+
+class Solution
+{
+	public:
+		string is_palindrome(int n)
+		{
+		    // Time Complexity --> O(log10(n));
+		    // Space Complexity --> O(1)
+		    int real_number = n;
+		    int reversed_number = 0;
+		    while(n != 0)
+		    {
+		        int last_digit = n % 10;
+		        reversed_number = (reversed_number * 10) + last_digit;
+		        n = n / 10;
+		    }
+		    bool check = true;
+		    while(real_number != 0)
+		    {
+		        int last_digit_of_real_number = real_number % 10;
+		        int last_digit_of_reversed_number = reversed_number % 10;
+		        if(last_digit_of_real_number != last_digit_of_reversed_number)
+		        {
+		            return "No";
+		        }
+		        real_number = real_number / 10;
+		        reversed_number = reversed_number / 10;
+		    }
+		    return "Yes";
+		}
+};
