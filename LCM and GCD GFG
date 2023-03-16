@@ -1,0 +1,26 @@
+// LCM And GCD
+
+// Given two numbers A and B. The task is to find out their LCM and GCD.
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<long long> lcmAndGcd(long long a,long long b)
+{
+    long long gcd = __gcd(a,b);
+    long long maxi = max(a,b);
+    long long mini = min(a,b);
+    long long lcm = maxi / gcd;
+    lcm = lcm * mini;
+    vector<long long>v;
+    v.push_back(lcm);
+    v.push_back(gcd);
+    return v;
+}
+int main()
+{
+    long long a,b;
+    cin>>a>>b;
+    vector<long long>ans = lcmAndGcd(a,b);
+    cout<<"lcm : "<<ans.at(0)<<" "<<"gcd"<<" "<<ans.at(1)<<"\n";
+    return 0;
+}
