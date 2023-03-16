@@ -1,0 +1,53 @@
+// Q) Print All Divisors of a number 'n' ? 
+
+// Ex 1 -> N = 6 
+// Solution 1 --> 1,2,3,6 
+
+// Ex 2 -> N = 10 
+// Solution 2 -> 1,2,5,10 
+
+// Ex 3 -> N = 50 
+// Soltuion 3 -> 1,2,5,10,25,50 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+void print_all_divisors(int n)
+{
+    // I can either solve this in O(n) time complexity 
+    for(int i=1;i<=n;i++)
+    {
+        if(n % i == 0)
+        {
+            cout<<i<<" ";
+        }
+    }
+    cout<<"\n";
+}
+void print_all_factors(int n)
+{
+    // A better method is to do this in O(sqrt(n)) time complexity 
+    for(int i=1;i<=sqrt(n);i++)
+    {
+        if(n % i == 0)
+        {
+            if(n/i != i)
+            {
+                cout<<i<<" "<<(n/i)<<" ";
+            }
+            else
+            {
+                cout<<i<<" ";
+            }
+        }
+    }
+    cout<<"\n";
+}
+int main()
+{
+    int n;
+    cin>>n;
+    print_all_divisors(n);
+    print_all_factors(n);
+    return 0;
+}
