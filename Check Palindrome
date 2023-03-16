@@ -1,0 +1,39 @@
+// Check palindrome 
+
+// Q) Given an integer check whether its palindrome or not ? 
+
+#include<bits/stdc++.h>
+using namespace std;
+bool check_palindrome(int n)
+{
+    // time complexity --> O(log n)
+    // space complexity --> O(32) at max == O(1)
+    if(n >= 0 && n <= 9)return true;
+    vector<int>v;
+    while(n != 0)
+    {
+        int last_digit = n % 10;
+        v.push_back(last_digit);
+        n = n / 10;
+    }
+    int start = 0;
+    int end = v.size() - 1;
+    while(start < end)
+    {
+        if(v[start] != v[end])
+        {
+            return false;
+        }
+        start += 1;
+        end -= 1;
+    }
+    return true;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    bool ans = check_palindrome(n);
+    ans ? cout<<"Yes,it is palindrome\n" : cout<<"Not a palindrome\n";
+    return 0;
+}
