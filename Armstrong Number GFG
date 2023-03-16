@@ -1,0 +1,33 @@
+// Armstrong Numbers
+
+// For a given 3 digit number, find whether it is armstrong number or not. 
+
+#include<bits/stdc++.h>
+using namespace std;
+bool is_it_armstrong(int n)
+{
+    int armstrong_number = 0;
+    int real_number = n;
+    while(real_number != 0)
+    {
+        int last_digit = real_number % 10;
+        armstrong_number = armstrong_number + (last_digit * last_digit * last_digit);
+        real_number = real_number / 10;
+    }
+    return armstrong_number == n;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    bool ans = is_it_armstrong(n);
+    if(ans)
+    {
+        cout<<"Yes,it is an armstrong number\n";
+    }
+    else
+    {
+        cout<<"No,not a armstrong number\n";
+    }
+    return 0;
+}
