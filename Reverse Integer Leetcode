@@ -1,0 +1,32 @@
+// Reverse Integer Leetcode 
+
+#include<bits/stdc++.h>
+using namespace std;
+int reverse_integer(int n)
+{
+    // Time Complexity --> O(log n)
+    // Space Complexity --> O(1)
+    int rev = 0;
+    while(n != 0)
+    {
+        int last_digit = n % 10;
+        n = n / 10;
+        if((rev > INT_MAX/10) || (rev == INT_MAX/10 && last_digit > 7))
+        {
+            return 0;
+        }
+        if((rev < INT_MIN/10) || (rev == INT_MIN/10 && last_digit < -8))
+        {
+            return 0;
+        }
+        rev = ((rev * 10) + last_digit);
+    }
+    return rev;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    cout<<reverse_integer(n);
+    return 0;
+}
