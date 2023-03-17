@@ -1,0 +1,42 @@
+// Sum of all divisors from 1 to n
+
+// Input:
+// N = 4
+// Output:
+// 15
+// Explanation:
+// F(1) = 1
+// F(2) = 1 + 2 = 3
+// F(3) = 1 + 3 = 4
+// F(4) = 1 + 2 + 4 = 7
+// ans = F(1) + F(2) + F(3) + F(4)
+//     = 1 + 3 + 4 + 7
+//     = 15
+
+
+// N = 5;
+// Output -> 21
+
+
+#include<bits/stdc++.h>
+using namespace std;
+long long sumOfDivisors(int n)
+{
+    // Time Complexity --> O(n)
+    // Space Complexity -> O(1)
+    long long ans = 0;
+    for(int i=1;i<=n;i++)
+    {
+        int times = (n/i);
+        ans = ans + 0LL + (i*times);
+    }
+    return ans;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    long long ans = sumOfDivisors(n);
+    cout<<ans<<"\n";
+    return 0;
+}
