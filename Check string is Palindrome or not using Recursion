@@ -1,0 +1,27 @@
+// Check if a string is palindrome or not using recursion 
+
+#include<bits/stdc++.h>
+using namespace std;
+bool helper(string s,int start,int end)
+{
+    if(start >= end)return true;
+    if(s[start] != s[end])
+    {
+        return false;
+    }
+    return helper(s,start+1,end-1);
+}
+bool is_Palindrome(string s)
+{
+    int start = 0;
+    int end = s.size() - 1;
+    return helper(s,start,end);
+}
+int main()
+{
+    string s;
+    cin>>s;
+    bool check = is_Palindrome(s);
+    check ? cout<<"It is palindrome\n" : cout<<"Not a palindrome\n";
+    return 0;
+}
