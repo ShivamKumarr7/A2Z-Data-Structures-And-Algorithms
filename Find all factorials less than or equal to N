@@ -1,0 +1,42 @@
+// Q) Find all factorial numbers less than or equal to N
+
+// A number N is called a factorial number if it is the factorial of a positive integer. 
+// For example, the first few factorial numbers are 1, 2, 6, 24, 120.
+// Given a number N,the task is to return the list/vector of the factorial numbers smaller 
+// than or equal to N.
+
+// Ex1 -> Input n = 3
+// Output -> 1 2 
+
+// Ex2 -> Input n = 120
+// Output -> 1 2 6 24 120 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<long long>find_Factorials_Less_Than_N(long long n)
+{
+    // Time Complexity --> O(k)... where k is the no of factorials less thn N 
+    // Space Complexity -> O(1) 
+    vector<long long>v;
+    long long prod = 1;
+    long long start = 1;
+    while(prod <= n)
+    {
+        v.push_back(prod);
+        start += 1;
+        prod = prod * start;
+    }
+    return v;
+}
+int main()
+{
+    long long n;
+    cin>>n;
+    vector<long long>ans = find_Factorials_Less_Than_N(n);
+    for(int i=0;i<ans.size();i++)
+    {
+        cout<<ans.at(i)<<" ";
+    }
+    return 0;
+}
