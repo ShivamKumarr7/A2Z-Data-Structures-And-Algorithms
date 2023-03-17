@@ -1,0 +1,20 @@
+// Print 1 to N without loop 
+
+#include<bits/stdc++.h>
+using namespace std;
+void print_recursively(int n)
+{
+    if(n == 0)
+    {
+        return;
+    }
+    print_recursively(n-1);
+    cout<<n<<"\n";
+}
+int main()
+{
+    int n;
+    cin>>n;
+    print_recursively(n);
+    return 0;
+}
