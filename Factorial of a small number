@@ -1,0 +1,22 @@
+// Factorial of a number 
+
+#include<bits/stdc++.h>
+using namespace std;
+long long facto(int n)
+{
+    if(n == 0)return 1;
+    long long ans = 1;
+    for(int i=2;i<=n;i++)
+    {
+        ans = ans * i;
+    }
+    return ans;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    long long ans = facto(n);
+    cout<<ans<<"\n";
+    return 0;
+}
