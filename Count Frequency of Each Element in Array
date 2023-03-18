@@ -1,0 +1,39 @@
+// Count Frequency of each element in an array :- 
+
+// Input: arr[] = {10,5,10,15,10,5};
+// Output: 10  occurs 3 times
+// 	       5 occurs 2 times
+//         15 occurs 1 time
+
+
+#include<bits/stdc++.h>
+using namespace std;
+void countFrequency(vector<int>v)
+{
+    int sizze = v.size();
+    unordered_map<int,int>umap;
+    for(int i=0;i<sizze;i++)
+    {
+        int temp = v[i];
+        umap[temp] += 1;
+    }
+    unordered_map<int,int>:: iterator it = umap.begin();
+    while(it != umap.end())
+    {
+        cout<<it->first<<" occurs "<<it->second<<" times in the array\n";
+        it++;
+    }
+    return;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    countFrequency(v);
+    return 0;
+}
