@@ -1,0 +1,36 @@
+// How to create a map that stores {key -> value} pairs in descending order
+
+
+// We all know maps usually store {key -> value} pair in ascending order based on the keys.
+
+// But if i want my map to store {key -> value} pair in descending order based on the keys then,
+// I need a custom comparator 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+class comp
+{
+    public :
+    bool operator()(const int x,const int y)
+    {
+        return x > y;
+    }
+};
+
+int main()
+{
+    map<int,int,comp>m;
+    m[1] = 5;
+    m[5] = 2;
+    m[2] = 8;
+    m[7] = 9;
+    m[4] = 6;
+    auto it = m.begin();
+    while(it != m.end())
+    {
+        cout<<it->first<<" -> "<<it->second<<"\n";
+        it++;
+    }
+    return 0;
+}
