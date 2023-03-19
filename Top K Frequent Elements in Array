@@ -1,0 +1,67 @@
+// Top K Frequent Elements in Array 
+
+// Given a non-empty array of integers, find the top k elements which have the highest frequency 
+// in the array.
+
+// If two numbers have the same frequency then the larger number should be given preference. 
+
+// Input:
+// N = 6
+// nums = {1,1,1,2,2,3}
+// k = 2
+// Output: {1, 2}
+
+// Input:
+// N = 8
+// nums = {1,1,2,2,3,3,3,4}
+// k = 2
+// Output: {3, 2}
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> topK(vector<int>v,int k)
+{
+    int sizze = v.size();
+    map<int,int>umap;
+    for(int i=0;i<sizze;i++)
+    {
+        umap[v[i]]++;
+    }
+    multimap<int,int>hacked;
+    auto it = umap.begin();
+    while(it != umap.end())
+    {
+        int key = it->first;
+        int value = it->second;
+        hacked.insert({value,key});
+        it++;
+    }
+    vector<int>ans;
+    auto jt = hacked.rbegin();
+    while(k--)
+    {
+        int temp = jt->second;
+        ans.push_back(temp);
+        jt++;
+    }
+    return ans;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    int k;
+    cin>>k;
+    vector<int>ans = topK(v,k);
+    for(int i=0;i<ans.size();i++)
+    {
+        cout<<ans[i]<<" ";
+    }
+    cout<<"\n";
+    return 0;
+}
