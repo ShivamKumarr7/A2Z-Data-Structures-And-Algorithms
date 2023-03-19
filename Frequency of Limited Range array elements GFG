@@ -1,0 +1,39 @@
+// Frequencies of Limited Range Array Elements
+
+// this uses unordered_map 
+// Space complexity --> O(n) 
+// Time complexity --> O(n)
+
+#include<bits/stdc++.h>
+using namespace std;
+void frequencyCount(vector<int>&arr,int n,int p)
+{
+    unordered_map<int,int>umap;
+    for(int i=0;i<n;i++)
+    {
+        umap[arr[i]]++;
+    }
+    for(int i=1;i<=n;i++)
+    {
+        arr[i-1] = umap[i];
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    int p;
+    cin>>p;
+    frequencyCount(v,n,p);
+    for(int i=0;i<n;i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<"\n";
+    return 0;
+}
