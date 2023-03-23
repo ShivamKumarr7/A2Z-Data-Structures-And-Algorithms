@@ -1,0 +1,107 @@
+// Merge Sort 
+
+
+// Merge sort is an efficient sorting algorithm.
+
+// It comes under "Divide and Conquer" paradigm.
+
+// The way merge sorts works is it first divides the array into smaller arrays and then regroups them
+// to form a sorted array.
+
+// Best Case Time Complexity --> O(n logn)
+// Average Case Time Complexity --> O(n logn)
+// Worst Case Time Complexity --> O(n logn)
+
+// Space Complexity is O(n)
+
+// Merge Sort is a stable sorting algorithm.
+// Merge Sort is not an inplace sorting algorithm as it takes extra space.
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+void printArray(int arr[],int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<"\n";
+}
+void merge(int arr[],int low,int mid,int high)
+{
+    int no_of_elements = high - low;
+    int crr[no_of_elements] = {0};
+    int left = low;
+    int right = mid + 1;
+    int i = 0;
+    
+    while(left <= mid && right <= high)
+    {
+        if(arr[left] <= arr[right])
+        {
+            crr[i] = arr[left];
+            left++;
+        }
+        else
+        {
+            crr[i] = arr[right];
+            right++;
+        }
+        i++;
+    }
+    
+    while(left <= mid)
+    {
+        crr[i] = arr[left];
+        i++;
+        left++;
+    }
+    while(right <= high)
+    {
+        crr[i] = arr[right];
+        i++;
+        right++;
+    }
+    
+    int start = 0;
+    for(int i=low;i<=high;i++)
+    {
+        arr[i] = crr[start];
+        start++;
+    }
+}
+void mergeSort(int arr[],int low,int high)
+{
+    if(low >= high)
+    {
+        return;
+    }
+    int mid = (low + high)/2;
+    mergeSort(arr,low,mid);
+    mergeSort(arr,mid+1,high);
+    merge(arr,low,mid,high);
+}
+void mergeSort(int arr[],int n)
+{
+    int low = 0;
+    int high = n-1;
+    mergeSort(arr,low,high);
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n] = {0};
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    cout<<"Array before merge sort : ";
+    printArray(arr,n);
+    mergeSort(arr,n);
+    cout<<"Array after merge sort : ";
+    printArray(arr,n);
+    return 0;
+}
