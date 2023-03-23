@@ -1,0 +1,85 @@
+// Quick Sort 
+
+// Quick Sort is an efficient sorting algorithm.
+// It is a sorting algorithm that comes under Divide and Conquer paradigm.
+
+// It picks one element as pivot and partitions the given array around the picked pivot.
+// We can pick pivot in different ways.
+
+// Best Case Time Complexity --> O(n logn)
+// Average Case Time Complexity ---> O(n logn)
+// Worst Case Time Complexity --> O(n^2).
+
+// Auxiliary Space Complexity is O(1).
+
+// Quick Sort is not a stable sorting algorithm.
+// Quick sort is an inplace sorting algorithm.
+
+
+// In this implementation...i have chosen the first element as pivot.
+
+#include<bits/stdc++.h>
+using namespace std;
+void printArray(int arr[],int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<"\n";
+}
+int partition(int arr[],int low,int high)
+{
+    int pivot = arr[low];
+    int left = low;
+    int right = high;
+    while(left < right)
+    {
+        while(arr[left] <= pivot && left < high)
+        {
+            left++;
+        }
+        while(arr[right] > pivot && right > low)
+        {
+            right--;
+        }
+        if(left < right)
+        {
+            swap(arr[left],arr[right]);
+        }
+    }
+    swap(arr[low],arr[right]);
+    return right;
+}
+void quickSort(int arr[],int low,int high)
+{
+    if(low >= high)
+    {
+        return;
+    }
+    int partition_idx = partition(arr,low,high);
+    quickSort(arr,low,partition_idx-1);
+    quickSort(arr,partition_idx+1,high);
+}
+void quickSort(int arr[],int n)
+{
+    int low = 0;
+    int high = n-1;
+    quickSort(arr,low,high);
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n] = {0};
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    cout<<"Array before quick sort : ";
+    printArray(arr,n);
+    quickSort(arr,n);
+    cout<<"Array after quick sort: ";
+    printArray(arr,n);
+    return 0;
+}
