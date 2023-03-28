@@ -1,0 +1,51 @@
+// Find Second Smallest and Second Largest Element in an array 
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> findSecondSmallestAndLargest(int arr[],int n)
+{
+    int largest = INT_MIN;
+    int sec_largest = INT_MIN;
+    int smallest = INT_MAX;
+    int sec_smallest = INT_MAX;
+    
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i] > largest)
+        {
+            sec_largest = largest;
+            largest = arr[i];
+        }
+        if(arr[i] > sec_largest && arr[i] != largest)
+        {
+            sec_largest = arr[i];
+        }
+        if(arr[i] < smallest)
+        {
+            sec_smallest = smallest;
+            smallest = arr[i];
+        }
+        if(arr[i] < sec_smallest && arr[i] != smallest)
+        {
+            sec_smallest = arr[i];
+        }
+    }
+    vector<int>v;
+    v.push_back(sec_smallest);
+    v.push_back(sec_largest);
+    return v;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n] = {0};
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    vector<int>ans = findSecondSmallestAndLargest(arr,n);
+    cout<<"Second smallest element is : "<<ans[0]<<"\n";
+    cout<<"Second largest element is : "<<ans[1]<<"\n";
+    return 0;
+}
