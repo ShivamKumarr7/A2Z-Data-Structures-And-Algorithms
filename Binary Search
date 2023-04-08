@@ -1,0 +1,56 @@
+// Binary Search
+
+// Binary Search is an efficient searching algorithm.
+// Binary search works on the sorted data.
+// It reduces the search space every time and this thing makes it efficient.
+// Best Case Time Complexity --> O(1)
+// Average Case Time Complexity is O(log n)
+// Worst Case Time Complexity is O(log n).
+// Space Complexity is O(1).
+
+#include<bits/stdc++.h>
+using namespace std;
+bool binarySearch(int arr[],int n,int element_to_find)
+{
+    int start = 0;
+    int end = n-1;
+    while(start <= end)
+    {
+        int mid = (start + end)/2;
+        if(arr[mid] == element_to_find)
+        {
+            return true;
+        }
+        else if(arr[mid] > element_to_find)
+        {
+            end = mid - 1;
+        }
+        else
+        {
+            start = mid + 1;
+        }
+    }
+    return false;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n] = {0};
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    int element_to_find;
+    cin>>element_to_find;
+    bool ans = binarySearch(arr,n,element_to_find);
+    if(ans)
+    {
+        cout<<"Yes,element found\n";
+    }
+    else
+    {
+        cout<<"Element not found\n";
+    }
+    return 0;
+}
