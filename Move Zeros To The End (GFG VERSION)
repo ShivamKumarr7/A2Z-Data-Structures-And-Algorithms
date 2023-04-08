@@ -1,0 +1,59 @@
+// Move all zeroes to end of array (GFG VERSION)
+
+// Given an array arr[] of N positive integers. Push all the zeros of the given array to the right
+// end of the array while maitaining the order of non-zero elements.
+
+
+// Time complexity --> O(n)
+// Space complexity --> O(1)
+
+#include<bits/stdc++.h>
+using namespace std;
+void printArray(int arr[],int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+    cout<<"\n";
+}
+void moveZerosToEnd(int arr[],int n)
+{
+    // i wll first find the index of first zeroth element 
+    int zero_idx = -1;
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i] == 0)
+        {
+            zero_idx = i;
+            break;
+        }
+    }
+    // and then i will find the first non zero element and swap it with it... and this will go on 
+    int non_zero_idx = zero_idx + 1;
+    while(zero_idx < n && non_zero_idx < n)
+    {
+        if(arr[non_zero_idx] != 0)
+        {
+            swap(arr[zero_idx],arr[non_zero_idx]);
+            zero_idx += 1;
+        }
+        non_zero_idx += 1;
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n] = {0};
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    cout<<"Array before moving zeros to the end : ";
+    printArray(arr,n);
+    moveZerosToEnd(arr,n);
+    cout<<"Array after moving zeros to the end : ";
+    printArray(arr,n);
+    return 0;
+}
