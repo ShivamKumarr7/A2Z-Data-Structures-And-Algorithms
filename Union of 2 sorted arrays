@@ -1,0 +1,89 @@
+// Q) Find the union of two sorted arrays
+
+// Ex1 : arr[] = {1,2,3,4,5}
+//       brr[] = {1,2,3,3,5}
+// Output --> {1,2,3,4,5}
+
+// Ex2 : arr[] = {1,1}
+//       brr[] = {2,2,2,2,2}
+// Output --> {1,2}
+
+
+// This method takes O(n+m) time 
+// This also takes O(n+m) space.
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> findUnion(int arr[],int m,int brr[],int n)
+{
+    vector<int>ans;
+    int pt1 = 0;
+    int pt2 = 0;
+    while(pt1 < m && pt2 < n)
+    {
+        if(arr[pt1] < brr[pt2])
+        {
+            if(ans.size() == 0 || ans.back() != arr[pt1])
+            {
+                ans.push_back(arr[pt1]);
+            }
+            pt1 += 1;
+        }
+        else if(arr[pt1] > brr[pt2])
+        {
+            if(ans.size() == 0 || ans.back() != brr[pt2])
+            {
+                ans.push_back(brr[pt2]);
+            }
+            pt2 += 1;
+        }
+        else
+        {
+            if(ans.size() == 0 || ans.back() != arr[pt1])
+            {
+                ans.push_back(arr[pt1]);
+            }
+            pt1 += 1;
+            pt2 += 1;
+        }
+    }
+    while(pt1 < m)
+    {
+        if(ans.size() == 0 || ans.back() != arr[pt1])
+        {
+            ans.push_back(arr[pt1]);
+        }
+        pt1 += 1;
+    }
+    while(pt2 < n)
+    {
+        if(ans.size() == 0 || ans.back() != brr[pt2])
+        {
+            ans.push_back(brr[pt2]);
+        }
+        pt2 += 1;
+    }
+    return ans;
+}
+int main()
+{
+    int m,n;
+    cin>>m>>n;
+    int arr[m] = {0};
+    int brr[n] = {0};
+    for(int i=0;i<m;i++)
+    {
+        cin>>arr[i];
+    }
+    for(int i=0;i<n;i++)
+    {
+        cin>>brr[i];
+    }
+    vector<int>union_array = findUnion(arr,m,brr,n);
+    for(int i=0;i<union_array.size();i++)
+    {
+        cout<<union_array[i]<<" ";
+    }
+    cout<<"\n";
+    return 0;
+}
