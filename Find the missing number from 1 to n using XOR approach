@@ -1,0 +1,43 @@
+// Find the missing number 
+
+// //  Given an integer N and an array of size N-1 containing N-1 numbers between 1 to N. 
+// Find the number(between 1 to N), that is not present in the given array.
+
+// Ex-> n = 5
+// arr[] = {1,5,2,3}
+// Output --> 4 
+
+// Time Complexity --> O(n)
+// Space Complexity --> O(1)
+
+// another approach to solve this is using XOR 
+// we know 2 basic properties of xor that if a ^ a = 0 and a ^ 0 = a 
+// it is because in xor opposite bits become 1 and similar bits become 0
+
+#include<bits/stdc++.h>
+using namespace std;
+int findMissingNumber(int arr[],int n)
+{
+    int array_xor = 0;
+    int one_to_n_xor = 0;
+    for(int i=0;i<n-1;i++)
+    {
+        array_xor = array_xor ^ arr[i];
+        one_to_n_xor = one_to_n_xor ^ (i+1);
+    }
+    one_to_n_xor = one_to_n_xor ^ n;
+    return array_xor ^ one_to_n_xor;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n-1] = {0};
+    for(int i=0;i<n-1;i++)
+    {
+        cin>>arr[i];
+    }
+    int ans = findMissingNumber(arr,n);
+    cout<<"Missing number is : "<<ans<<"\n";
+    return 0;
+}
