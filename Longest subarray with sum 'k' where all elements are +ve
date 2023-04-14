@@ -1,0 +1,67 @@
+// Q) Longest Subarray with given sum 'k' ? 
+
+// Given an array and a sum k, we need to print the length of the longest subarray that sums to k.
+// ALL the elements will be positive 
+
+// Ex1 
+// n = 4
+// arr[] = {7,1,6,0}
+// k = 7
+// Output --> 3   (the subarray {1,6,0} sums up to 7 and it is the longest subarray with length 3)
+
+// Ex2 
+// n = 5
+// arr[] = {2,3,5,1,9}
+// k = 10
+// Output --> 3 (the subarray {2,3,5} sums up to 10 and it is the longest subarray with length 3)
+
+
+
+// Approach 1 : I can check all the subarrays sum and then decide the longest subarray and print it.
+
+// Time complexity --> O(n^2) 
+// Space complexity --> O(1) 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int longestSubarrayWithSumK(int arr[],int n,int k)
+{
+    int ans = INT_MIN;
+    for(int i=0;i<n;i++)
+    {
+        int sum = arr[i];
+        if(sum == k)
+        {
+            ans = max(ans,1);
+        }
+        for(int j=i+1;j<n;j++)
+        {
+            sum = sum + arr[j];
+            if(sum == k)
+            {
+                ans = max(ans,j-i+1);
+            }
+            if(sum > k)
+            {
+                break;
+            }
+        }
+    }
+    return ans;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n] = {0};
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    int k;
+    cin>>k;
+    int ans = longestSubarrayWithSumK(arr,n,k);
+    cout<<ans<<"\n";
+    return 0;
+}
