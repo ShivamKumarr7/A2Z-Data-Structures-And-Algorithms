@@ -1,0 +1,50 @@
+// Q) Find the longest subarray with sum 'k' 
+// Elements can be positive,negative and zero 
+
+// One good approach is to use unorderd map and with the help of prefix sum we can solve this question 
+// in O(n) time and O(n) space.
+
+// Time complexity --> O(n)
+// Space complexity --> O(n)
+
+#include<bits/stdc++.h>
+using namespace std;
+int longestSubarrayWithSumK(int arr[],int n,int k)
+{
+    unordered_map<int,int>umap;
+    int ans = 0;
+    int sum = 0;
+    for(int i=0;i<n;i++)
+    {
+        sum += arr[i];
+        if(sum == k)
+        {
+            ans = max(ans,i+1);
+        }
+        int rem_sum = sum - k;
+        if(umap.find(rem_sum) != umap.end())
+        {
+            ans = max(ans,i-umap[rem_sum]);
+        }
+        if(umap.find(sum) == umap.end())
+        {
+            umap.insert({sum,i});
+        }
+    }
+    return ans;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int arr[n] = {0};
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    int k;
+    cin>>k;
+    int ans = longestSubarrayWithSumK(arr,n,k);
+    cout<<ans<<"\n";
+    return 0;
+}
