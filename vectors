@@ -1,0 +1,168 @@
+
+// VECTORS 
+
+// i) Vectors are same as dynamic arrays with the ability to resize itself when an element is inserted or deleted.
+// ii) Vector elements are stored in contiguos memory locations and can be traversed with the help of iterators.
+// iii) In vectors,the data is inserted at the end.
+// iv) Its useful to use vectors in place of arrays..as they have some predefined functions that makes it very easy for 
+// some complex things.
+
+
+// SOME USEFUL FUNCTIONS ASSOCIATED WITH VECTORS ARE :- 
+
+
+// I) ITERATORS :- 
+
+// i) begin() -> Returns an iterator pointing to the first element in the vector 
+// ii) end() -> Return an iterator pointing to the theoretical element that follows the last element in the vector.
+
+// --------------------------------  How to create iterators and traverse the vector ------------------------------- // 
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    vector<int>s;
+    s.push_back(1);
+    s.push_back(2);
+    s.push_back(3);
+    s.push_back(4);
+    s.push_back(5);
+    // now we have to create an iterator 
+    vector<int>:: iterator it;
+    it = s.begin();
+    for(;it != s.end();it++)
+    {
+        cout<<*(it)<<" ";
+    }
+    cout<<"\n";
+    // now again i wish to create an iterator that points to the last element 
+    vector<int>:: iterator gt;
+    gt = s.end();
+    for(gt = s.end() - 1; gt >= s.begin() ; gt--)
+    {
+        cout<<*(gt)<<" ";
+    }
+    return 0;
+}
+
+
+// II) CAPACITY :-
+
+// i) size()  --> Returns the no of elements in the vector 
+// ii) resize(n)  --> Resizes the container so that it can store n elements 
+// iii) empty()  --> returns whether the vector is empty 
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    vector<int>s;
+    s.push_back(1);
+    s.push_back(2);
+    s.push_back(3);
+    s.push_back(4);
+    s.push_back(5);
+    cout<<s.size()<<"\n";
+    bool temp = s.empty();
+    cout<<temp<<"\n";
+    s.resize(2);
+    for(int i=0;i<2;i++)
+    {
+        cout<<s[i]<<" ";
+    }
+    return 0;
+}
+
+
+// III) ELEMENT ACCESS :- 
+
+// i) reference operator[g]  --> returns a reference to the element at position 'g' in the vector 
+// ii) at(g) --> returns a reference to the element at position 'g' in the vector
+// iii) front()  --> returns a reference to the first element in the vector 
+// iv) back() --> returns a reference to the last element in the vector 
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    vector<int>s;
+    s.push_back(1);
+    s.push_back(2);
+    s.push_back(3);
+    s.push_back(4);
+    s.push_back(5);
+    cout<<s.front()<<"\n";
+    cout<<s.back()<<"\n";
+    for(int i=0;i<s.size();i++)
+    {
+        cout<<s.at(i)<<" ";
+    }
+    cout<<"\n";
+    for(int i=0;i<s.size();i++)
+    {
+        cout<<s[i]<<" ";
+    }
+    return 0;
+}
+
+
+// IV) MODIFIERS :- 
+
+// i) push_back()  --> It pushes the element into the vector from the back 
+// ii) pop_back()  --> It is used to remove the element from the back 
+// iii) erase()  ---> Used to erase elements from a specified position or range... IT USES ITERATORS 
+// iv) swap()  --> used to swap content of a vector with another of the same type...size can differ.
+// v) clear()  --> used to clear all the contents of a vector...the size becomes 0.
+// vi) emplace_back()  --> used to insert a new element into the vector from the back
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    vector<int>s;
+    s.push_back(1);
+    s.push_back(2);
+    s.push_back(3);
+    s.push_back(4);
+    s.push_back(5);
+    cout<<s.size()<<"\n";
+    // now i will pop_back() an element and check the size of vector now 
+    s.pop_back();
+    cout<<s.size()<<"\n";
+    // to erase the first element of the vector ..ill have to create an ietrator first 
+    vector<int>:: iterator it = s.begin();
+    s.erase(it);
+    // now again lets check the size 
+    cout<<s.size()<<"\n";
+    // now lets clear the whole vector using clear() functin 
+    s.clear();
+    cout<<s.size()<<"\n";
+    // now lets use emplace_back() and see if it inserts a new element in the vector 
+    s.emplace_back(10);
+    cout<<s.size()<<"\n";
+    // finally lets swap contents of two vectors vec1 and vec2 
+    vector<int>vec1 = {-1,-2,-3,-4};
+    vector<int>vec2 = {-11,-12};
+    swap(vec1,vec2);
+    // now lets see whats there in vec1 and vec2 
+    cout<<"vec1 : \n";
+    for(int i=0;i<vec1.size();i++)
+    {
+        cout<<vec1[i]<<" ";
+    }
+    cout<<"\n";
+    cout<<"vec2 : \n";
+    for(int i=0;i<vec2.size();i++)
+    {
+        cout<<vec2[i]<<" ";
+    }
+    cout<<"\n";
+    return 0;
+}
