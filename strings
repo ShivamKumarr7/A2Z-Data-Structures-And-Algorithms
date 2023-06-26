@@ -1,0 +1,100 @@
+
+// String 
+
+// 1) A string is a class which defines objects that can be represented as stream of characters.
+// 2) It has a functionality of allowing access to single byte character.
+// 3) In case of strings memory is allocated dynamically.
+// 4) As no memory is preallocated no space is wasted.
+
+// One drawback of strings are that it is slower comapred to character array. 
+
+// String class has a lot of inbuilt functions which helps us in many ways.
+
+
+
+// I) OPERATION ON STRINGS :- 
+
+// i) getline() --> It is used to take input of more than 1 words or sentence.
+// ii) push_back()  --> This function is used to insert a character at the end of the string.
+// iii) pop_back()  --> This function is used to delete the last character of the string.
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    cout<<"s : "<<s<<"\n";
+    cin.ignore();
+    string t;
+    getline(cin,t);
+    cout<<"t : "<<t<<"\n";
+    s.push_back('A');
+    cout<<"s : "<<s<<"\n";
+    s.pop_back();
+    cout<<"s : "<<s<<"\n";
+    return 0;
+}
+
+// II) CAPACITY FUNCTIONS :- 
+
+// i) capacity()  --> It returns the capacity allocated to the string which can be equal or more than the size of string.
+// ii) resize() --> It changes the size of string..either increases or decreases.
+// iii) length()  --> It finds the length of the string.
+// iv) size()  --> It returns the size of the string.
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    cout<<"s : "<<s<<"\n";
+    cout<<s.capacity()<<"\n";
+    s.resize(1);
+    cout<<s.size()<<"\n";
+    cout<<s.length()<<"\n";
+    return 0;
+}
+
+
+// III) ITERATOR FUNCTIONS :-
+
+// i) begin()  --> This function returns an iterator to the first element of the vector.
+// ii) end() --> This function returns an iterator to the theoritical elemt after the last element of the string.
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    // how to create an iterator to a string
+    string:: iterator it = s.begin(); // points to the first element of the string
+    cout<<*(it)<<"\n";
+    string:: iterator lt = s.end();  // points to the theortical element after the last element
+    cout<<*(lt)<<"\n";
+    lt--;
+    cout<<*(lt)<<"\n";
+    return 0;
+}
+
+
+// IV) MANIPULATING FUNCTIONS :- 
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    string temp;
+    cin>>temp;
+    cout<<"s : "<<s<<"\n";
+    cout<<"temp : "<<temp<<"\n";
+    swap(s,temp);
+    cout<<"s : "<<s<<"\n";
+    cout<<"temp : "<<temp<<"\n";
+    return 0;
+}
