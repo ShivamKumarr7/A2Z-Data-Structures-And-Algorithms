@@ -1,0 +1,78 @@
+
+// STACK :-
+
+// Stacks are a type of adaptive container with LIFO (Last In First Out) working.
+// Stack uses either a vector or deque or list as its underlying container.
+// Here the new element is always added at the end(top).
+
+// For creating a stack we must include <stack>
+ 
+// OPERATION ON STACKS :- 
+
+
+// I) ELEMENT ACCESS :- 
+
+// i) top --> access the top element 
+
+
+// II) CAPACITY :- 
+
+// i) empty  --> Returns whether the stack is empty or not 
+// ii) size  --> Returns the no of elements 
+
+
+// III) MODIFIERS :- 
+
+// i) push --> inserts element at the top 
+// ii) emplace --> constructs element in-place at the top 
+// iii) pop --> Removes the top element 
+// iv) swap --> Swap the contents 
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    stack<int>s;
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    s.push(4);
+    s.push(5);
+    cout<<"size of this stack : "<<s.size()<<"\n";
+    while(!s.empty())
+    {
+        cout<<s.top()<<" ";
+        s.pop();
+    }
+    cout<<"\n";
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    s.push(4);
+    s.pop();   // removes 4
+    s.pop();   // removes 3 
+    while(!s.empty())
+    {
+        cout<<s.top()<<" ";
+        s.pop();
+    }
+    cout<<"\n";
+    stack<int>l;
+    l.push(1001);
+    swap(s,l);   // now l will be empty and s will be having 1001 
+    while(!s.empty())
+    {
+        cout<<s.top()<<" ";
+        s.pop();
+    }
+    cout<<"\n";
+    while(!l.empty())
+    {
+        cout<<l.top()<<" ";
+        l.pop();
+    }
+    return 0;
+}
+
