@@ -1,0 +1,62 @@
+
+// QUEUE :- 
+
+// Queues are a type of container adaptors which operate in a first in first out (FIFO) type of arrangement.
+// Elements are inserted at the end and deleted from the front.
+// Queues use deque or list as its underlying container.
+
+
+// MEMBER FUNCTIONS :- 
+
+// i) empty --> Returns whether the container is empty or not 
+// ii) size --> Returns size 
+// iii) front --> Access next element 
+// iv) back --> Access last element 
+// v) push  --> Insert elements 
+// vi) emplace --> Construct and insert element 
+// vii) pop  --> Remove next element 
+// viii) swap  --> Swap contents 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    queue<int>s;
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    s.push(4);
+    s.push(5);
+    cout<<s.size()<<"\n";
+    while(!s.empty())
+    {
+        cout<<s.front()<<" ";
+        s.pop();
+    }
+    cout<<"\n";
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    queue<int>t;
+    t.push(101);
+    t.push(102);
+    t.push(103);
+    cout<<s.back()<<"\n";   // will print the last element of the queue s 
+    cout<<t.back()<<"\n";   // will print the last element of the queue t 
+    swap(s,t);
+    // now lets print both the vector 
+    while(!s.empty())
+    {
+        cout<<s.front()<<" ";
+        s.pop();
+    }
+    cout<<"\n";
+    while(!t.empty())
+    {
+        cout<<t.front()<<" ";
+        t.pop();
+    }
+    cout<<"\n";
+    return 0;
+}
