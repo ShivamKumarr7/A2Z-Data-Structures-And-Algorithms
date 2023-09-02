@@ -1,0 +1,52 @@
+void reverse(string &s)
+{
+    int start = 0;
+    int end = s.size() - 1;
+    while(start < end)
+    {
+        swap(s[start],s[end]);
+        start += 1;
+        end -= 1;
+    }
+}
+
+long reverseBits(long n) {
+    
+    string binary_of_n = "";
+    long value = n;
+    while(value != 0)
+    {
+        long rem = value % 2;
+        value = value / 2;
+        if(rem == 1)
+        {
+            binary_of_n.push_back('1');
+        }
+        else
+        {
+            binary_of_n.push_back('0');
+        }
+    }
+    reverse(binary_of_n);
+    
+    string reverse_binary_of_n = "";
+    int no_of_zeros = 32 - binary_of_n.size();
+    for(int i=0;i<no_of_zeros;i++)
+    {
+        reverse_binary_of_n.push_back('0');
+    }
+    for(int i=0;i<binary_of_n.size();i++)
+    {
+        reverse_binary_of_n.push_back(binary_of_n[i]);
+    }
+    reverse(reverse_binary_of_n);
+    
+    long ans = 0;
+    int start = 0;
+    for(int i=31;i>=0;i--)
+    {
+        ans = ans + (pow(2,start) * (reverse_binary_of_n[i] - '0'));
+        start += 1;
+    }
+    return ans;
+}
