@@ -1,0 +1,52 @@
+// Q) Given a number n, find number of digits in it ?
+
+// Ex-> n = 10 
+// O/P -> 2 
+
+// Ex-> n = 24532;
+// O/P-> 5 
+
+// 1 <= n <= 10^9
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int method1(int n)
+{
+    // in this method we will divide the number by 10 and keep a counter 
+    int ct = 0;
+    int value = n;
+    while(value != 0)
+    {
+        ct += 1;
+        value = value / 10;
+    }
+    return ct;
+    
+    // time complexity --> O(n) i.e the number of digits in the number 
+}
+int method2(int n)
+{
+    // in this method we will convert the integer to a string and then return the size of string 
+    string s = to_string(n);
+    return s.size();
+    
+    // time complexity --> O(1)
+}
+int method3(int n)
+{
+    // in this method we will use log10(n) + 1;
+    return floor(log10(n)) + 1;
+    
+    // time complexity --> O(1)
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int ans1 = method1(n);
+    int ans2 = method2(n);
+    int ans3 = method3(n);
+    cout<<"The number of digits in "<<n<<" is : "<<ans1<<" "<<ans2<<" "<<ans3<<"\n";
+    return 0;
+}
