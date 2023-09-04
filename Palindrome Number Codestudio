@@ -1,0 +1,21 @@
+// Palindrome number
+
+bool palindrome(int n)
+{
+    if(n < 10) return true;
+    
+    string actual_number = to_string(n);
+    int start = 0;
+    int end = actual_number.size() - 1;
+    while(start < end)
+    {
+        if(actual_number[start] != actual_number[end])
+        {
+            return false;
+        }
+        start += 1;
+        end -= 1;
+    }
+    return true;
+
+}
