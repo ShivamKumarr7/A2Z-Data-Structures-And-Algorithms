@@ -1,0 +1,22 @@
+bool checkArmstrong(int n){
+	
+	if(n < 10) return true;
+
+	long long original_number = n;
+	long long armstrong_number = 0;
+	int value = n;
+	int no_of_digits = 0;
+	while(value !=  0)
+	{
+		no_of_digits += 1;
+		value = value / 10;
+	}
+	value = n;
+	while(value != 0)
+	{
+		int last_digit = value % 10;
+		armstrong_number = armstrong_number + pow(last_digit,no_of_digits);
+		value = value / 10;
+	}
+	return (original_number == armstrong_number);
+}
