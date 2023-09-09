@@ -1,0 +1,16 @@
+int sumOfAllDivisors(int n){
+
+	// We can solve this question in O(sqrt(n)) time using harmonic lemma theorem.
+
+	int start = 1;
+	int ans = 0;
+	while(start <= n)
+	{
+		int value = n / start;
+		int end = n / value;
+		int sum = (end * (end + 1)) / 2 - (start * (start - 1)) / 2;
+		ans = ans + (value * sum);
+		start = end + 1;
+	}
+	return ans;
+}
