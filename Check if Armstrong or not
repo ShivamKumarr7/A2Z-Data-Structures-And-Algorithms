@@ -1,0 +1,30 @@
+// Check if a number is armstrong number or not ? 
+
+#include<bits/stdc++.h>
+using namespace std;
+bool is_Armstrong_Number(int n)
+{
+    // method 1 is to convert this to a string and solve it 
+    if(n >= 0 && n <= 9) return true;
+    string s = to_string(n);
+    int sizze = s.size();
+    int ans = 0;
+    for(int i=0;i<sizze;i++)
+    {
+        ans = ans + pow((s[i] - '0'),sizze);
+    }
+    cout<<ans<<"\n";
+    if(ans == n)
+    {
+        return true;
+    }
+    return false;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    bool ans = is_Armstrong_Number(n);
+    ans ? cout<<"YES\n" : cout<<"NO\n";
+    return 0;
+}
