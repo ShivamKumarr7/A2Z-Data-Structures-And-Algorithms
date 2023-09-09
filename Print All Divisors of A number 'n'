@@ -1,0 +1,44 @@
+// Print all Divisors of a given number 
+
+#include<bits/stdc++.h>
+using namespace std;
+void print_All_Divisors(int n)
+{
+    // one way is to iterate from (1 to n/2)
+    // time complexity will be O(n/2) ... which is O(n) 
+    
+    // a better approach is to see that the divisors of any number start repeating after sqrt(n) of that 
+    // number i.e 
+    // n = 50 
+    // sqrt(n) = 7 
+    // 1 * 50 = {1,50}
+    // 2 * 25 = {2,25}
+    // 5 * 10 = {5,10}
+    // so we need to do only till 7 
+    // {1,2,5,10,25,50} these are the divisors of 50 
+    
+    // this approach takes O(sqrt(n)) time 
+    
+    for(int i=1;i<=(sqrt(n));i++)
+    {
+        if(n % i == 0)
+        {
+            if(n/i != i)
+            {
+                cout<<(i)<<" "<<(n/i)<<" ";
+            }
+            else
+            {
+                cout<<(i)<<" ";
+            }
+        }
+    }
+    cout<<"\n";
+}
+int main()
+{
+    int n;
+    cin>>n;
+    print_All_Divisors(n);
+    return 0;
+}
