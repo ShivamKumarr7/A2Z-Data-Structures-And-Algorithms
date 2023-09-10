@@ -1,0 +1,42 @@
+// Print Fibonacci Number upto 'n' th term --> ITERATIVE CODE 
+
+// 1st Fibonacci number is 0
+// 2nd Fibonacci number is 1 
+// 3rd Fibonacci number is 1 
+// 4th Fibonacci number is 2 
+// 5th Fibonacci number is 3 
+
+// Fibonacci Series = {0,1,1,2,3,5,8,13,21,34,55,89....} 
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+void print_fibo_till(int n)
+{
+    if(n == 1)
+    {
+        cout<<(0)<<"\n";
+    }
+    if(n == 2)
+    {
+        cout<<(0)<<" "<<(1)<<"\n";
+    }
+    cout<<(0)<<" "<<(1)<<" ";
+    int first = 0;
+    int second = 1;
+    for(int i=3;i<=n;i++)
+    {
+        int next_term = first + second;
+        first = second;
+        second = next_term;
+        cout<<next_term<<" ";
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    print_fibo_till(n);
+    return 0;
+}
