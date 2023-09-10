@@ -1,0 +1,62 @@
+// Valid Palindrome LeetCode 
+
+
+// A phrase is a palindrome if, after converting all uppercase letters into lowercase letters
+// and removing all non-alphanumeric characters, it reads the same forward and backward.
+// Alphanumeric characters include letters and numbers.
+
+// Given a string s, return true if it is a palindrome, or false otherwise.
+
+// Example 1:
+
+// Input: s = "A man, a plan, a canal: Panama"
+// Output: true
+// Explanation: "amanaplanacanalpanama" is a palindrome.
+// Example 2:
+
+// Input: s = "race a car"
+// Output: false
+// Explanation: "raceacar" is not a palindrome.
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isPalindrome(string s)
+{
+    int sizze = s.size();
+    string real = "";
+    for(int i=0;i<sizze;i++)
+    {
+        if(iswalnum(s[i]))
+        {
+            if(s[i] >= 'A' && s[i] <= 'Z')
+            {
+                s[i] = tolower(s[i]);
+            }
+            real.push_back(s[i]);
+        }
+    }
+    
+    // cout<<real<<"\n";
+    
+    int start = 0;
+    int end = real.size() - 1;
+    
+    while(start < end)
+    {
+        if(real[start] != real[end])
+        {
+            return false;
+        }
+        start += 1;
+        end -= 1;
+    }
+    return true;
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    bool ans = isPalindrome(s);
+    ans ? cout<<"Yes,it is palindrome\n" : cout<<"Not a palindrome\n";
+    return 0;
+}
