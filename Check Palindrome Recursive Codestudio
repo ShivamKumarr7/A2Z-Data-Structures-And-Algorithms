@@ -1,0 +1,20 @@
+bool help(string &str,int start,int end)
+{
+    if(start >= end)
+    {
+        return true;
+    }
+    if(str[start] != str[end])
+    {
+        return false;
+    }
+    return help(str,start+1,end-1);
+}
+
+bool isPalindrome(string& str) {
+    
+    int start = 0;
+    int end = str.size() - 1;
+    return help(str,start,end);
+
+}
