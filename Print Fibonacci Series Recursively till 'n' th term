@@ -1,0 +1,43 @@
+// Print fibonacci till 'n' th term recursively 
+
+// 1st fibonacci term is 0 
+// 2nd fibonacci term is 1
+// 3rd fibonacci term is 1 
+// 4th fibonacci term is 2 
+// 5th fibonacci term is 3 
+// 6th fibonacci term is 5 
+
+// fibonacci series --> {0,1,1,2,3,5,8,13,21,34,55,89...}
+
+#include<bits/stdc++.h>
+using namespace std;
+void help(int start,int first,int second,int n)
+{
+    if(start > n)
+    {
+        return;
+    }
+    int value = first + second;
+    cout<<value<<" ";
+    help(start+1,second,value,n);
+}
+void print_fibonacci_till_n_recursively(int n)
+{
+    if(n == 1) cout<<(0)<<"\n";
+    else if(n == 2) cout<<(0)<<" "<<(1)<<"\n";
+    else
+    {
+        cout<<(0)<<" "<<(1)<<" ";
+        int start = 3;
+        int first = 0;
+        int second = 1;
+        help(start,first,second,n);
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    print_fibonacci_till_n_recursively(n);
+    return 0;
+}
