@@ -1,0 +1,22 @@
+// This approach uses recursion.
+
+void help(long long start,long long value,long long n,vector<long long>& ans)
+{
+    value = value * start;
+    if(value > n)
+    {
+        return;
+    }
+    ans.push_back(value);
+    help(start+1,value,n,ans);
+}
+
+vector<long long> factorialNumbers(long long n) {
+    
+    long long start = 1;
+    long long value = 1;
+    vector<long long>ans;
+    help(start,value,n,ans);
+    return ans;
+    
+}
