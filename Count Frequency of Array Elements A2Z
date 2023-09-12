@@ -1,0 +1,33 @@
+// Q) Count frequency of each element in the array ? 
+
+#include<bits/stdc++.h>
+using namespace std;
+void count_element_occuring(vector<int>v)
+{
+    int sizze = v.size();
+    unordered_map<int,int>umap;
+    for(int i=0;i<sizze;i++)
+    {
+        umap[v[i]] += 1;
+    }
+    for(int i=0;i<sizze;i++)
+    {
+        if(umap[v[i]] != 0)
+        {
+            cout<<umap[v[i]]<<" ";
+            umap[v[i]] = 0;
+        }
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    count_element_occuring(v);
+    return 0;
+}
