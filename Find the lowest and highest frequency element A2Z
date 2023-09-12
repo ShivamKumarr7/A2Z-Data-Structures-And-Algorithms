@@ -1,0 +1,47 @@
+// Find the highest/lowest frequency element 
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> highest_and_lowest_freq_element(vector<int>v,int n)
+{
+    unordered_map<int,int>umap;
+    for(int i=0;i<n;i++)
+    {
+        umap[v[i]] += 1;
+    }
+    int maximum_no_of_times = INT_MIN;
+    int minimum_no_of_times = INT_MAX;
+    int maximum_occuring = 0;
+    int minimum_occuring = 0;
+    
+    for(int i=0;i<n;i++)
+    {
+        if(umap[v[i]] > maximum_no_of_times)
+        {
+            maximum_no_of_times = umap[v[i]];
+            maximum_occuring = v[i];
+        }
+        if(umap[v[i]] < minimum_no_of_times)
+        {
+            minimum_no_of_times = umap[v[i]];
+            minimum_occuring = v[i];
+        }
+    }
+    vector<int>ans(2,0);
+    ans[0] = maximum_occuring;
+    ans[1] = minimum_occuring;
+    return ans;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    vector<int>ans = highest_and_lowest_freq_element(v,n);
+    cout<<"highest : "<<ans[0]<<" "<<"lowest : "<<ans[1]<<"\n";
+    return 0;
+}
