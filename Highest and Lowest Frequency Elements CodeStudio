@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+
+vector<int> getFrequencies(vector<int>& v) {
+    
+    unordered_map<int,int>umap;
+    for(int i=0;i<v.size();i++)
+    {
+        umap[v[i]] += 1;
+    }
+
+    unordered_map<int,int>:: iterator it = umap.begin();
+
+    int max_ele = it->first;
+    int min_ele = it->first;
+
+    int maximum_frequency = it->second;
+    int minimum_frequency = it->second;
+
+
+    while(it != umap.end())
+    {
+        int ele = it->first;
+        int occur = it->second;
+
+        if(occur == maximum_frequency)
+        {
+            if(ele < max_ele)
+            {
+                max_ele = ele;
+            }
+        }
+        if(occur > maximum_frequency)
+        {
+            maximum_frequency = occur;
+            max_ele = ele;
+        }
+        if(occur == minimum_frequency)
+        {
+            if(ele < min_ele)
+            {
+                min_ele = ele;
+            }
+        }
+        if(occur < minimum_frequency)
+        {
+            minimum_frequency = occur;
+            min_ele = ele;
+        }
+        it++;
+    }
+
+    vector<int>ans;
+    ans.push_back(max_ele);
+    ans.push_back(min_ele);
+    return ans;
+}
