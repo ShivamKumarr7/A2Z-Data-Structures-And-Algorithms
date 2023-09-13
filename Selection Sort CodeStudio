@@ -1,0 +1,21 @@
+void selectionSort(vector<int>&arr) {
+    
+    int n = arr.size();
+
+    // selection sort selects the minimum element and places it at the first index.
+
+    for(int i=0;i<n-1;i++)
+    {
+        int mini_idx = i;
+        for(int j=i+1;j<n;j++)
+        {
+            if(arr[j] < arr[mini_idx])
+            {
+                mini_idx = j;
+            }
+        }
+        swap(arr[i],arr[mini_idx]);
+    }
+
+
+}
