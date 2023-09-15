@@ -1,0 +1,52 @@
+// Merge Sort 
+
+void merge(vector<int>&arr,int start,int mid,int end)
+{
+    int left = start;
+    int right = mid + 1;
+    vector<int>temp;
+
+    while(left <= mid && right <= end)
+    {
+        if(arr[left] <= arr[right])
+        {
+            temp.push_back(arr[left]);
+            left += 1;
+        }
+        else
+        {
+            temp.push_back(arr[right]);
+            right += 1;
+        }
+    }
+
+    while(left <= mid)
+    {
+        temp.push_back(arr[left]);
+        left += 1;
+    }
+    while(right <= end)
+    {
+        temp.push_back(arr[right]);
+        right += 1;
+    }
+    
+    int idx = 0;
+    for(int i=start;i<=end;i++)
+    {
+        arr[i] = temp[idx];
+        idx += 1;
+    }
+}
+
+void mergeSort(vector<int>& arr, int l, int r) {
+    
+    if(l < r)
+    {
+        int mid = (l + r)/2;
+        mergeSort(arr,l,mid);
+        mergeSort(arr,mid+1,r);
+        merge(arr,l,mid,r);
+    }
+    
+}
