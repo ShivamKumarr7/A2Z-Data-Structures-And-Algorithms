@@ -1,0 +1,78 @@
+// Quick Sort 
+
+// Quick Sort is a simple and efficient sorting algorithm that works by making an element as pivot 
+// and then placing that in the correct position.
+
+// It is also known as Parititon Sort algorithm as Parititon is very important step in this. 
+
+// HOW CAN WE CHOOSE PIVOT ?
+// --> i) We can make the first element as pivot 
+// --> ii) We can make the last element as pivot 
+// --> iii) We can make the middle element as pivot 
+// --> iv) We can make a random element as pivot 
+
+// Best Case T.C --> O(n log n)
+// Worst Case T.C --> O(N^2)
+
+// Space Complexity --> O(1)
+
+// It is not a stable sorting algorithm.
+// It is an inplace sorting algorithm.
+
+#include<bits/stdc++.h>
+using namespace std;
+int partition(vector<int>&v,int start,int end)
+{
+    int pivot = v[start];
+    int i = start;
+    int j = end;
+    while(i < j)
+    {
+        while(v[i] <= pivot && i < end)
+        {
+            i++;
+        }
+        while(v[j] > pivot && j > start)
+        {
+            j--;
+        }
+        if(i < j)
+        {
+            swap(v[i],v[j]);
+        }
+    }
+    swap(v[start],v[j]);
+    return j;
+}
+void quickSort(vector<int>&v,int start,int end)
+{
+    if(start < end)
+    {
+        int idx = partition(v,start,end);
+        quickSort(v,start,idx-1);
+        quickSort(v,idx+1,end);
+    }
+}
+void quickSort(vector<int>&v,int n)
+{
+    int start = 0;
+    int end = n-1;
+    quickSort(v,start,end);
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    quickSort(v,n);
+    for(int i=0;i<n;i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<"\n";
+    return 0;
+}
