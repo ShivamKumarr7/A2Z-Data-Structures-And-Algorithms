@@ -1,0 +1,36 @@
+// Q) Largest Element in An Array 
+
+#include<bits/stdc++.h>
+using namespace std;
+int findMaximum(vector<int>&v,int n)
+{
+    int maxi = v[0];
+    for(int i=0;i<n;i++)
+    {
+        if(v[i] > maxi)
+        {
+            maxi = v[i];
+        }
+    }
+    return maxi;
+}
+int findMaximumNumber(vector<int>&v,int n)
+{
+    int maxi = *min_element(v.begin(),v.end());
+    return maxi;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    int maximum_number = findMaximum(v,n);
+    int maximum = findMaximumNumber(v,n);
+    cout<<maximum_number<<"\n";
+    cout<<maximum<<"\n";
+    return 0;
+}
