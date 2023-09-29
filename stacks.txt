@@ -1,5 +1,5 @@
 
-// STACK :-
+// STACK in C++ :-
 
 // Stacks are a type of adaptive container with LIFO (Last In First Out) working.
 // Stack uses either a vector or deque or list as its underlying container.
