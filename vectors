@@ -1,5 +1,5 @@
 
-// VECTORS 
+// VECTORS IN C++ STL
 
 // i) Vectors are same as dynamic arrays with the ability to resize itself when an element is inserted or deleted.
 // ii) Vector elements are stored in contiguos memory locations and can be traversed with the help of iterators.
