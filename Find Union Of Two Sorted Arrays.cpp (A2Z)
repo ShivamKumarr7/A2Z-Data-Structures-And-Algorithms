@@ -1,0 +1,70 @@
+// Find Union Of Two Sorted Arrays 
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> findUnion(vector<int>arr1,int n,vector<int>arr2,int m)
+{
+    vector<int>ans;
+    int left1 = 0;
+    int left2 = 0;
+    while(left1 < n && left2 < m)
+    {
+        if(arr1[left1] <= arr2[left2])
+        {
+            if(ans.size() == 0 || ans.back() != arr1[left1])
+            {
+                ans.push_back(arr1[left1]);
+            }
+            left1 += 1;
+        }
+        else 
+        {
+            if(ans.size() == 0 || ans.back() != arr2[left2])
+            {
+                ans.push_back(arr2[left2]);
+            }
+            left2 += 1;
+        }
+    }
+    while(left1 < n)
+    {
+        if(ans.back() != arr1[left1])
+        {
+            ans.push_back(arr1[left1]);
+        }
+        left1 += 1;
+    }
+    while(left2 < m)
+    {
+        if(ans.back() != arr2[left2])
+        {
+            ans.push_back(arr2[left2]);
+        }
+        left2 += 1;
+    }
+    return ans;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>arr1(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr1[i];
+    }
+    int m;
+    cin>>m;
+    vector<int>arr2(m,0);
+    for(int i=0;i<m;i++)
+    {
+        cin>>arr2[i];
+    }
+    vector<int>ans = findUnion(arr1,n,arr2,m);
+    for(int i=0;i<ans.size();i++)
+    {
+        cout<<ans[i]<<" ";
+    }
+    cout<<"\n";
+    return 0;
+}
