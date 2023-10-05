@@ -1,5 +1,5 @@
 
-// String 
+// Strings in CPP
 
 // 1) A string is a class which defines objects that can be represented as stream of characters.
 // 2) It has a functionality of allowing access to single byte character.
