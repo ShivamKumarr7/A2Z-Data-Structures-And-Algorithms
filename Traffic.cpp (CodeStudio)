@@ -1,0 +1,50 @@
+int traffic(int n, int m, vector<int> vehicle) {
+	
+	if(m >= n)
+	{
+		return n;
+	}
+
+	int ans = 0;
+	int ct = 0;
+
+	int start = 0;
+	int end = 0;
+
+	while(start < n && end < n)
+	{
+		if(vehicle[end] == 1)
+		{
+			ct += 1;
+			end += 1;
+		}
+		else
+		{
+			// v[end] == 0 
+			if(m > 0)
+			{
+				ct += 1;
+				end += 1;
+				m = m - 1;
+			}
+			else
+			{
+				if(vehicle[start] == 1)
+				{
+					ct = ct - 1;
+					start += 1;
+				}
+				else  
+				{
+					ct = ct - 1;
+					start = start + 1;
+					m = m + 1;
+				}
+			}
+		}
+		ans = max(ans,ct);
+	}
+
+	return ans;
+
+}
