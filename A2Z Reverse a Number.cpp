@@ -25,7 +25,7 @@ int reverse_number(int n)
         value = value / 10;
     }
     return ans;
-  // Time complexity --> O(n) i.e the number of digits in n.
+  // Time complexity --> O(n) i.e the number of digits in n 
 
 }
 int main()
