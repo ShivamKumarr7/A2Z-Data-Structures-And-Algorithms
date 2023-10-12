@@ -1,0 +1,35 @@
+class Solution {
+public:
+
+    int max(int a,int b)
+    {
+        if(a <= b)
+        {
+            return b;
+        }
+        return a;
+    }
+    int maxFrequency(vector<int>& nums, int k) {
+
+        sort(nums.begin(),nums.end());
+
+        long i = 0;
+        long j = 0;
+        long sum = 0;
+        long N = nums.size();
+        int ans = 1;
+
+        for(;j<N;j++)
+        {
+            sum += nums[j];
+            if((j-i+1) * nums[j] > sum + k)
+            {
+                sum = sum - nums[i];
+                i++;
+            }
+            ans = max(ans,j-i+1);
+        }
+        return ans;
+
+    }
+};
