@@ -1,0 +1,36 @@
+// Find the number that appears once and all other numbers twice in the array 
+
+// Given a non-empty array of integers arr, every element appears twice except for one. 
+// Find that single one.
+
+// n = 7;
+// v[] = {5,2,6,6,2,3,5};
+// Answer --> 3 
+
+// Time Complexity --> O(n)
+// Space Complexity --> O(1)
+
+#include<bits/stdc++.h>
+using namespace std;
+int numberAppearingOnce(vector<int>v,int n)
+{
+    int array_xor = v[0];
+    for(int i=1;i<n;i++)
+    {
+        array_xor = array_xor ^ v[i];
+    }
+    return array_xor;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    int ans = numberAppearingOnce(v,n);
+    cout<<ans<<"\n";
+    return 0;
+}
