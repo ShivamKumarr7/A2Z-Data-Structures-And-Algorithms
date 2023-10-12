@@ -1,0 +1,45 @@
+// Frequency of Most Frequent Element 
+
+// The frequency of an element is the number of times it occurs in an array.
+
+// You are given an integer array nums and an integer k.
+// In one operation, you can choose an index of nums and increment the element at that index by 1.
+
+// Time Complexity --> O(nlogn)
+// Space Complexity --> O(1)
+
+#include<bits/stdc++.h>
+using namespace std;
+int mostFrequentElement(vector<int>v,int n,int k)
+{
+    sort(v.begin(),v.end());
+    int ans = 1;
+    int window_sum = 0;
+    int i = 0;
+    for(int j=0;j<n;j++)
+    {
+        window_sum += v[j];
+        if((j-i+1) * v[j] > window_sum + k)
+        {
+            window_sum = window_sum - v[i];
+            i++;
+        }
+        ans = max(ans,j-i+1);
+    }
+    return ans;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    int k;
+    cin>>k;
+    int ans = mostFrequentElement(v,n,k);
+    cout<<ans<<"\n";
+    return 0;
+}
