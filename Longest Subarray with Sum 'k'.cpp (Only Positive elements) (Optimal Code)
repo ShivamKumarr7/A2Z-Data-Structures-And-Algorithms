@@ -1,0 +1,52 @@
+// Longest Subarray with given Sum K (Positives)
+
+// Given an array and a sum k, we need to print the length of the longest subarray that sums to k.
+
+
+// Ex-> n = 3,k = 5
+// arr[] = {2,3,5}
+// Answer --> 2 
+
+// Ex-> n = 5,k = 10 
+// arr[] = {2,3,5,1,9}
+// Answer --> 3 
+
+// Here I will use the template for sliding window and 2 pointer.
+
+#include<bits/stdc++.h>
+using namespace std;
+int findLongestSubarray(vector<int>v,int n,int k)
+{
+    int start = 0;
+    int end = 0;
+    int ans = 0;
+    int sum = 0;
+    
+    for(;end<n;end++)
+    {
+        sum += v[end];
+        while(sum > k)
+        {
+            sum = sum - v[start];
+            start += 1;
+        }
+        if(sum == k)
+        ans = max(ans,end-start+1);
+    }
+    return ans;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    int k;
+    cin>>k;
+    int ans = findLongestSubarray(v,n,k);
+    cout<<ans<<"\n";
+    return 0;
+}
