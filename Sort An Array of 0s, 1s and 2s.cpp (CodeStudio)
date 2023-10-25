@@ -1,0 +1,42 @@
+#include <bits/stdc++.h> 
+void sortArray(vector<int>& arr, int n)
+{
+    
+    // we will use 3 pointers here 
+    
+    int low = 0;
+    int mid = 0;
+    int high = n-1;
+
+    // the intuition behind this is 
+    
+    // 0 to low-1 ---> all elements will be 0 
+    // low to mid-1 --> all elements will be 1
+    // mid to high-1 --> all elements will be either (0/1/2) and in unsorted manner 
+    // high to n-1 ---> all elements will be 2 
+
+    // 0 to low-1  || low to mid-1 || mid to high-1 || high to n-1 
+    // 0 0 0 0 0 0    1 1 1 1 1 1     2 0 1 2 0 1      2 2 2 2 2  
+
+    // so we basically need to sort mid to high-1 area 
+
+    while(mid <= high)
+    {
+        if(arr[mid] == 0)
+        {
+            swap(arr[mid],arr[low]);
+            low += 1;
+            mid += 1;
+        }
+        else if(arr[mid] == 1)
+        {
+            mid += 1;
+        }
+        else 
+        {
+            swap(arr[mid],arr[high]);
+            high -= 1;
+        }
+    } 
+
+}
