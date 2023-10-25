@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+string read(int n, vector<int> book, int target)
+{
+    
+    string ans = "";
+
+    unordered_map<int,int>umap;
+    for(int i=0;i<n;i++)
+    {
+        int present_element = book[i];
+        int element_reqd_for_target = target - book[i];
+        if(umap.find(element_reqd_for_target) != umap.end())
+        {
+            ans = "YES";
+            break;
+        }
+        umap.insert({book[i],i});
+    }
+    if(ans == "")
+    {
+        ans = "NO";
+    }
+    return ans;
+
+}
