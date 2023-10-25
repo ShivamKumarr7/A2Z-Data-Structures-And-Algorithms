@@ -1,0 +1,51 @@
+// Two Sum 
+// Check if a pair with given sum exists in Array
+
+// Return YES if there exist two numbers such that their sum is equal to the target. Otherwise, return NO.
+
+
+// Ex-> n = 5 
+// v[] = {2,6,5,8,11}
+// target = 14
+// v[1] + v[3] = 14 so return yes 
+// Output --> YES 
+
+
+// Method 1 : Is to runs two loops n^2 solution and check.
+
+// Method 2 : 
+
+#include<bits/stdc++.h>
+using namespace std;
+bool twoSum(vector<int>v,int n,int target)
+{
+    bool present = false;
+    unordered_map<int,int>umap;
+    for(int i=0;i<n;i++)
+    {
+        int current_element = v[i];
+        int element_reqd_for_target = target - v[i];
+        if(umap.find(element_reqd_for_target) != umap.end())
+        {
+            present = true;
+            break;
+        }
+        umap.insert({v[i],i});
+    }
+    return present;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    int target;
+    cin>>target;
+    bool ans = twoSum(v,n,target);
+    ans ? cout<<"Yes, two elements exist whose sum is equal to target" : cout<<"No";
+    return 0;
+}
