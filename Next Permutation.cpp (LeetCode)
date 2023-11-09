@@ -1,0 +1,52 @@
+lass Solution {
+public:
+
+    void reverseArray(vector<int>&nums,int start,int end)
+    {
+        while(start < end)
+        {
+            swap(nums[start],nums[end]);
+            start += 1;
+            end -= 1;
+        }
+    }
+    void nextPermutation(vector<int>& nums) {
+
+        int n = nums.size();
+        
+        // we can directly use the C++ stl 
+
+        // next_permutation(nums.begin(),nums.end());
+
+        // apart from this we can also try to implement the logic that stl uses
+
+        int index = -1;
+
+        for(int i=n-2;i>=0;i--)
+        {
+            if(nums[i] < nums[i+1])
+            {
+                index = i;
+                break;
+            }
+        }
+        if(index == -1)
+        {
+            reverseArray(nums,0,n-1);
+        }
+        else 
+        {
+            int swap_idx = -1;
+            for(int i=n-1;i>index;i--)
+            {
+                if(nums[i] > nums[index])
+                {
+                    swap_idx = i;
+                    break;
+                }
+            }
+            swap(nums[index],nums[swap_idx]);
+            reverseArray(nums,index+1,n-1);
+        }
+    }
+};
