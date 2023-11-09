@@ -1,0 +1,57 @@
+void reverseArray(vector<int>&A,int start,int end)
+{
+    while(start < end)
+    {
+        swap(A[start],A[end]);
+        start += 1;
+        end -= 1;
+    }
+}
+
+vector<int> nextGreaterPermutation(vector<int> &A) {
+    
+    // next permutation return krna hai 
+
+    // next_permutation(A.begin(),A.end());
+    // return A;
+
+    // aaise direct STL use krke bhi kr skte hai 
+    // but lets code how c++ stl next_permutation is actually implemented internally 
+
+    int n = A.size();
+    int index = -1;
+    for(int i=n-2;i>=0;i--)
+    {
+        if(A[i] < A[i+1])
+        {
+            index = i;
+            break;
+        }
+    }
+
+    if(index == -1)
+    {
+        // mtlb ye toh last possible permutation hi hai 
+        // i.e 3 2 1 
+        // toh issme bss reverse krdo vector ko 
+        reverseArray(A,0,n-1);
+    }
+    else   
+    {
+        int swap_idx = -1;
+        for(int i=n-1;i>=index;i--)
+        {
+            if(A[i] > A[index])
+            {
+                swap_idx = i;
+                break;
+            }
+        }
+        swap(A[index],A[swap_idx]);
+        // abb reverse krde aage ke elements 
+        reverseArray(A,index+1,n-1);
+    }
+
+    return A;
+
+}
