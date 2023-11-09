@@ -1,0 +1,72 @@
+// how next_permutation of C++ STL actually works 
+// this is very close to the way next_permutation in C++ STL works 
+
+// this is the algorithm or the idea how it works
+
+#include<bits/stdc++.h>
+using namespace std;
+void printArray(vector<int>v,int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<"\n";
+}
+void reverseArray(vector<int>&v,int start,int end)
+{
+    while(start < end)
+    {
+        swap(v[start],v[end]);
+        start += 1;
+        end -= 1;
+    }
+}
+void nextPermutation(vector<int>&v,int n)
+{
+    // if the permutation is like 3 2 1 
+    // then in this case it doesnt have any next permutation and we have to return the 
+    // initial state that is 1 2 3 
+    int index = -1;
+    for(int i=n-2;i>=0;i--)
+    {
+        if(v[i] < v[i+1])
+        {
+            index = i;
+            break;
+        }
+    }
+    if(index == -1)
+    {
+        // last permutation hai ye and issme pura array reverse krke de do 
+        reverseArray(v,0,n-1);
+    }
+    else 
+    {
+        int swap_idx = -1;
+        for(int i=n-1;i>=index;i--)
+        {
+            if(v[i] > v[index])
+            {
+                swap_idx = i;
+                break;
+            }
+        }
+        swap(v[index],v[swap_idx]);
+        reverseArray(v,index+1,n-1);
+    }
+}
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int>v(n,0);
+    for(int i=0;i<n;i++)
+    {
+        cin>>v[i];
+    }
+    printArray(v,n);
+    nextPermutation(v,n);
+    printArray(v,n);
+    return 0;
+}
